@@ -188,7 +188,7 @@ class SmartSystem:
             try:
                 ws_url = await self.__get_ws_url(location)
                 await self.__launch_websocket_loop(ws_url)
-            except (websockets.ConnectionClosed, InvalidTokenError, OAuthError) as error:
+            except Exception as error:
                 self.logger.debug(error, exc_info=True)
                 continue
             finally:
